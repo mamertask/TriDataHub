@@ -1,0 +1,22 @@
+﻿@model ProcessorModel
+
+@{
+    ViewData["Title"] = "Processors";
+}
+
+<div class="container">
+    <div class="row">
+        @{
+            foreach(var processor in Model.Processors)
+            {
+                <div class="card">
+                    <img src="@processor.PictureUrl" class="card-img-top" alt="..." style="height:200px; width:200px;">
+                    <div class="card-body">
+                        <h5 class="card-title">@processor.Name</h5>
+                        <p class="card-text">@processor.Price Eur.</p>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</div>

@@ -1,0 +1,32 @@
+﻿@{
+    ViewData["Title"] = "Books";
+}
+
+<h1>Books</h1>
+
+<p>This is where we will show Books from API</p>
+
+@model BookModel
+
+@{
+    ViewData["Title"] = "Books";
+}
+
+<h1>@Model.Title</h1>
+<h5>@Model.Description</h5>
+
+<ul class="list-group">
+    @{
+        foreach (var book in @Model.Books)
+        {
+            <li class="list-group-item align-items-center">
+                <div class=row>
+                    <div class=col-2><img src="@string.Format("https://covers.openlibrary.org/b/olid/"+book.Cover+"-M.jpg")" height="120" width="90"></div>
+                    <div class=col-2><b>@book.AuthorName</b></div>
+                    <div class=col-6>@string.Format("{0}, Publish year: {1}, Page count: {2}",book.Title, book.FirstPublishYear, book.PageCount);</div>
+                    <div class=col-2><span class="badge bg-green badge-pill">@book.Id</span></div>
+                </div>
+            </li>
+        }
+    }
+</ul>

@@ -1,0 +1,20 @@
+﻿@model JokeModel
+
+@{
+    ViewData["Title"] = "Jokes";
+}
+
+<h1>@Model.Title</h1>
+<h5>@Model.Description</h5>
+
+<ul class="list-group">
+    @{
+    foreach(var joke in @Model.Jokes)
+    {
+        <li class="list-group-item d-flex justify-content-between align-items-center">  
+            @joke.Joke
+             <span class="badge bg-green badge-pill">@joke.Id</span>
+        </li>
+    }
+}
+</ul>
